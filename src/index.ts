@@ -16,7 +16,7 @@ const {
 // ======================================================
 
 const CONFIG = {
-  host: process.env.MC_HOST || 'YOUR_SERVER_ADDRESS',
+  host: process.env.MC_HOST || 'MrSadib.aternos.me',
   port: Number(process.env.MC_PORT || 25565),
 
   username: process.env.BOT_USERNAME || 'MyBot',
