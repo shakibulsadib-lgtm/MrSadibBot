@@ -1,96 +1,101 @@
-# AterBot ✨  
-[![License: GPL v3](https://img.shields.io/badge/License-GPLv3-blue.svg)](/LICENSE)  
-### Keep your Aternos server alive 24/7.
-Please star this project <3  
-<br/>
+# Minecraft 1.21.11 Bot
 
+A Mineflayer Minecraft Java 1.21.11 bot with:
 
+- Random wandering
+- Looking around
+- Jumping
+- Player following
+- Player navigation
+- Chat commands
+- Automatic reconnection
+- Health monitoring
+- Death handling
 
-# This project will no longer be maintained
-1. Since Repl.it became a paid service now, this project will no longer be maintained.
-2. Aternos will force shut down your server if its on for a long time. Good luck!
+## Requirements
 
+- Node.js 18 or newer
+- Minecraft Java Edition server
+- Minecraft Java 1.21.11
 
+## Installation
 
-# Requirements 🎒
-1. A Replit account.  
-	Sign up at: https://replit.com/signup
+Clone the repository:
 
-2. An UptimeRobot account.  
-	Sign up at: https://uptimerobot.com/signUp
+    git clone YOUR_GITHUB_REPOSITORY_URL
 
-3. A Minecraft server you owned.  
-	Make sure your server settings ``online-mode`` set to ``false``!  
-	And you should have an OP permission!
+Enter the folder:
 
+    cd minecraft-aternos-bot
 
+Install dependencies:
 
-# Setup ⚙
-1. Join your server.
-2. Build a bedrock room somewhere, and stay in there.  
-(Recommended room size: `X5 Y3 Z5`)
-3. Go to [Replit](https://replit.com/).
-4. Click `+` at the top right, click `Import from GitHub` at the close button.
-5. Put `https://github.com/JadeMin/aterbot.git` into `GitHub URL`, click `Create Repl`.
-6. Click `Run` at the top, your bot will join your server.  
-7. **Teleport the bot into the bedrock room, change the bot's gamemode to `Creative` to not die!**
-8. You'll see the `Webview` tab on Repl, copy the url.
-9. Edit `config.json` 
-10. Go to [UptimeRobot](https://uptimerobot.com/dashboard).
-11. Click `Add New Monitor`, select `Monitor Type` to `HTTP(s)`.
-12. Paste the url copied in `Step 8` into `URL (or IP)`.
-13. Click `Create Monitor` 2 times.
+    npm install
 
-Finally... DONE! Enjoy your free 24/7 Aternos server.
+## Configuration
 
+Set these environment variables:
 
+    MC_HOST
+    MC_PORT
+    BOT_USERNAME
+    MC_AUTH
 
-# FAQ ❓
-> #### Q1: My bot leaves immediately when I close the Repl page.
-<details><summary>A1:</summary>
+Example:
 
-Repl projects are automatically turned off when close the window, or after 5 minutes of inactivity.  
-And UptimeRobot trying to wake it up in every 5 minutes.  
-So you can just leave it even if it's not working for a while.  
-</details>
+    MC_HOST=yourserver.aternos.me
+    MC_PORT=25565
+    BOT_USERNAME=MyBot
+    MC_AUTH=offline
 
-<hr/>
+The `offline` authentication option should only be used when the server is configured to allow offline-mode accounts.
 
-> #### Q2: How to fix `unsupported/unknown protocol version: ###, update minecraft-data`?
-<details><summary>A2:</summary>
+For an authenticated Microsoft account, use:
 
-This project is using the `mineflayer` module.  
-**It may not supported on your server version yet.**  
-I'm trying to periodically check for updates, so please be patient.
-</details>
+    MC_AUTH=microsoft
 
-<hr/>
+Do not put account passwords or tokens in the GitHub repository.
 
-> #### Q3: How to fix `Invalid move player packet received`?
-<details><summary>A3:</summary>
+## Start
 
-It seems your bot escaped from the bedrock room.    
-So you have to wipe the playerdata in your server.  
-1. Go to the management page of your Aternos server.
-2. Click `Files` in the left section.
-3. Delete the `world/playerdata/<UUID>.dat`, `<UUID>.dat_old` file. (the UUID is your bot's UUID)
-4. Restart the bot.
+Run:
 
-**Lock the bot somewhere as soon as possible!**  
-**And change the bot's gamemode to `Creative` to not die.**
-</details>
+    npm start
 
-<hr/>
+## Commands
 
-> #### Q4: My bot leaves permanently after n hours.
-<details><summary>A4:</summary>
+    !help
 
-Aternos automatically bans AFK players from your server.  
-So just unban your bot, if it's banned.
-</details>
+Shows available commands.
 
+    !come
 
+Makes the bot walk to the player.
 
-# CAUTION ⚠
-### Aternos might detect your suspicious actions and delete your account!  
-**By using this, you acknowledge that you're responsible for any problems arise.**  
+    !follow
+
+Makes the bot follow the player.
+
+    !stop
+
+Stops pathfinding and movement.
+
+    !where
+
+Shows the bot's coordinates.
+
+    !jump
+
+Makes the bot jump.
+
+    !look
+
+Makes the bot look in a random direction.
+
+## Important
+
+GitHub stores the source code. It does not continuously execute Node.js programs.
+
+For continuous operation, the Node.js program needs to run on a computer or hosting service that remains online.
+
+This project does not attempt to bypass server anti-bot, anti-AFK, or hosting restrictions.
